@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('admin')->name('admin.')->group(function(){
+   route::resource('property', \App\http\Controllers\Admin\PropertyController::class)->except(['show']);
+   route::resource('option', \App\http\Controllers\Admin\OptionController::class)->except(['show']);
+   route::resource('agent', \App\http\Controllers\Admin\AgentController::class)->except(['show']);
+});
