@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Str;
+
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use App\Models\Option; 
@@ -38,6 +40,10 @@ class Property extends Model
     public function agent()
     {
         return $this->belongsTo(Agent::class);
+    }
+
+    public function getSlug():string{
+        return Str::slug($this->title);
     }
 
 }
