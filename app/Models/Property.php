@@ -46,4 +46,9 @@ class Property extends Model
         return Str::slug($this->title);
     }
 
+    public function pictures()
+    {
+        return $this->hasMany(\App\Models\Picture::class);
+    }
+
 }
