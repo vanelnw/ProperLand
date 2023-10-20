@@ -17,6 +17,7 @@
             <th>Surface</th>
             <th>Prix</th>
             <th>city</th>
+            <th>images</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,11 @@
                 <td>{{$property->surface}}m</td>
                 <td>{{number_format($property->price, thousands_separator: ' ')}}</td>
                 <td>{{$property->city}}</td>
+                <td class='flex gap-2'>
+                @foreach($property->images as $image)
+        <img src="{{ asset('storage/' . $image->image_path) }}" alt="Property Image" width=50 height=50>
+    @endforeach
+</td>
                 <td>
                     <div class="flex gap-3">
                         <a href="{{route('admin.property.edit', $property)}}" class="rounded p-2 bg-blue-500"> Editer</a>

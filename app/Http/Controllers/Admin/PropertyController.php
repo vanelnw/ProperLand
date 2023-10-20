@@ -19,7 +19,7 @@ class PropertyController extends Controller
     public function index()
     {
         return view('admin.properties.index', [
-            'properties' => Property::orderBy('created_at', 'desc')->paginate(2)
+            'properties' => Property::with('images')->orderBy('created_at', 'desc')->paginate(2)
         ]);
     }
 
@@ -55,6 +55,18 @@ class PropertyController extends Controller
     { 
         $property = Property::create($request->validated());
         $property->options()->sync($request->validated('options'));
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('property_images', 'public');
+
+                // Créez une nouvelle image associée à la propriété
+                $property->pictures()->create([
+                    'image_path' => $imagePath,
+                ]);
+            }
+        }
+
         return to_route('admin.property.index')->with('success', 'Le bien a été enregistré');
     }
 
@@ -77,9 +89,22 @@ class PropertyController extends Controller
     public function update(PropertyFormRequest $request, Property $property)
     {
         //$property = Property::find($id);
-        //dd($request->validated());
-        $property->update($request->validated());
-        $property->options()->sync($request->validated('options'));
+       // dd($request->validated());
+          $property->update($request->validated());
+          $property->options()->sync($request->validated('options'));
+
+        if ($request->hasFile('images')) {
+            // dd($request->file('images'));
+            foreach ($request->file('images') as $image) {
+                $imagePath = $image->store('property_images', 'public');
+
+                // Créez une nouvelle image associée à la propriété
+                $property->pictures()->create([
+                    'image_path' => $imagePath,
+                ]);
+            }
+        }
+
         return redirect()->route('admin.property.index')->with('success', 'Le bien a été mis à jour');
     }
 

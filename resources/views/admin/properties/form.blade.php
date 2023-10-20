@@ -7,7 +7,7 @@
 @section('content')
 
     <h1>@yield('title')</h1>
-    <form action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}" method="post">
+    <form action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}" method="post" enctype="multipart/form-data" >
         @csrf
         @method($property->exists ? 'put' : 'post')
 
@@ -42,6 +42,15 @@
     <div class="flex gap-5">
         @include('shared.checkbox', ['label' => 'Vendu', 'class' => 'flex', 'name' => 'sold_or_rent', 'value' => $property->sold_or_rent])
         @include('shared.checkbox', ['label' => 'A vender', 'class' => 'flex', 'name' => 'for_sale', 'value' => $property->for_sale])
+    </div>
+
+    <div>
+            <!-- Other property fields -->
+
+    <label for="images">Images (Select multiple):</label>
+    <input type="file" name="images[]" id="images" multiple accept="image/*">
+    
+    <!-- Submit button and other form fields -->
     </div>
 
         <div>

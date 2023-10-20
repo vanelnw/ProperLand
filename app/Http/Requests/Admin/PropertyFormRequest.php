@@ -41,6 +41,7 @@ class PropertyFormRequest extends FormRequest
             //"options" => ['array', 'exists:options.id', 'required']
             "options" => ['array', 'exists:options,id'],
             "agent_id" => ['integer', 'exists:agents,id'],
+            'images.*' => 'image|mimes:jpeg,png,gif|max:2048',
         ];
     }
 }
