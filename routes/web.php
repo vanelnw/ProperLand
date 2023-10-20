@@ -27,7 +27,11 @@ Route::post('/properties/{property}/contact', [\App\http\Controllers\PropertyCon
 ]
 );;
 
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::get('/login',[\App\http\Controllers\AuthController::class, 'login'])->middleware('guest')->name('login');
+Route::post('/login',[\App\http\Controllers\AuthController::class, 'doLogin']);
+Route::delete('/logout',[\App\http\Controllers\AuthController::class, 'logout'])->middleware('auth')->name('logout');
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
    route::resource('property', \App\http\Controllers\Admin\PropertyController::class)->except(['show']);
    route::resource('option', \App\http\Controllers\Admin\OptionController::class)->except(['show']);
    route::resource('agent', \App\http\Controllers\Admin\AgentController::class)->except(['show']);

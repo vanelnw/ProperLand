@@ -30,6 +30,18 @@
                     <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
                 </ul>
             </div>
+
+            <div class="t">
+                @auth 
+                    <div>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf 
+                            @method('delete')
+                            <button class="p-2 bg-red-600 rounded">logout</button>
+                        </form>
+                    </div>
+                @endauth
+            </div>
          </nav>
     </section>      
     
