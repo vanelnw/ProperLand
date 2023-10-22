@@ -29,6 +29,8 @@
                 <td>{{$property->city}}</td>
                 <td class='flex gap-2'>
                 @foreach($property->images as $image)
+
+
         <img src="{{ asset('storage/' . $image->image_path) }}" alt="Property Image" width=50 height=50>
     @endforeach
 </td>
