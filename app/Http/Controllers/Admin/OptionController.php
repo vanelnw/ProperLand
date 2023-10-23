@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\Admin\OptionFormRequest;
 
-use App\Models\Option; // Replace 'Option' with your actual model name
+use App\Models\Option; 
 
 class OptionController extends Controller
 {
