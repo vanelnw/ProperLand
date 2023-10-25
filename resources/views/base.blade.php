@@ -17,47 +17,7 @@
     <section class="relative mx-auto">
         <div class="relative hero h-screen bg-gradient-to-r from-[#FFF6F2] to-[#EEC1AC] pt-1 text-primary">
             <div class="absolute top-0 md:top-16 w-full">
-   <header class="relative container mx-auto py-6 px-5 bg-white shadow-lg rounded-lg">
-        <div class="w-full flex justify-between items-center">
-            <div class="flex items-center gap-2 text-2xl font-bold">
-                <img src="{{ asset('storage/images/properland.png') }}" alt="Logo" width=40 height=40>
-                <span class="mt-2">Properland</span>
-            </div>
-            <nav class="hidden md:flex mobile_nav">
-                <ul class="flex items-center space-x-4 ">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Properties</li>
-                    <li>Agents</li>
-                    <li>
-                        <button class="bg-primary px-5 py-1 rounded-md text-white">Contact</button>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="md:hidden">
-            <!-- Hamburger menu -->
-                <button id="mobile-menu-button" class="text-2xl focus:outline-none bg-primary text-white px-3 py-2">
-                    ☰ <!-- You can replace this with a hamburger icon -->
-                </button>
-            </div>
-
-            <!-- <div class="md:hidden absolute top-[100%] left-0  bg-white w-full p-3">
-                <nav class="md:hidden flex items-center space-x-4" id="main-nav">
-                <ul class="flex flex-col gap-4">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Properties</li>
-                    <li>Agents</li>
-                    <li>
-                        <button class="bg-primary px-5 py-1 rounded-md text-white">Contact</button>
-                    </li>
-                </ul>
-            </nav>
-            </div> -->
-
-        </div>
-    </header>
+                @include('shared.header')
             </div>
  
 
@@ -143,7 +103,7 @@
                         <p class="text-link text-[.7rem] mt-2">Distinctively re-engineer revolutionary meta-services and premium  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
                     </div>
                 </div>
-                <div class="relative col-span-2 flex bg-gradient-to-b from-[#F3D1C1] to-[#FFEEE5] p-5 rounded-md">
+                <div class="w-full relative col-span-1 md:col-span-2 flex bg-gradient-to-b from-[#F3D1C1] to-[#FFEEE5] p-5 rounded-md">
                     <div class="relative flex-1">
                         <img src="{{ asset('storage/images/pig.png') }}" alt="pig-image" class="object-contain h-20">
                     </div>
@@ -218,9 +178,9 @@
                             <img src="{{ asset('storage/images/houseIcon.png') }}" alt="vector" class="object-cover h-15 w-20">
                         </div>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center max-w-sm">
                         <h2 class="font-semibold text-[1.2rem] text-primary">Rent a Home</h2>
-                        <p class="text-[.8rem] text-[#8D8D8D]">High level overviews. approaches lverall value proposition. Organically grow the holistic world view of disruptive.</p>
+                        <p class="text-[.8rem]  text-[#8D8D8D]">High level overviews. approaches lverall value proposition. Organically grow the holistic world view of disruptive.</p>
                     </div>
                 </div>
                 <div class="flex flex-col items-center justify-center">
@@ -230,7 +190,7 @@
                             <img src="{{ asset('storage/images/houseIcon.png') }}" alt="vector" class="object-cover h-15 w-20">
                         </div>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center max-w-sm">
                         <h2 class="font-semibold text-[1.2rem] text-primary">Sale a Home</h2>
                         <p class="text-[.8rem] text-[#8D8D8D]">Frameworks to provide a robust synopsis for high level overviews. approaches lverall, Organically grow the holistic.</p>
                     </div>
@@ -242,7 +202,7 @@
                             <img src="{{ asset('storage/images/houseIcon.png') }}" alt="vector" class="object-cover h-15 w-20">
                         </div>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center max-w-sm">
                         <h2 class="font-semibold text-[1.2rem] text-primary">Buy a Home</h2>
                         <p class="text-[.8rem] text-[#8D8D8D]">Leverage agile frameworks to provide a robust synopsis for high level overviews. approaches lverall value proposition.</p>
                     </div>
@@ -254,7 +214,7 @@
                             <img src="{{ asset('storage/images/houseIcon.png') }}" alt="vector" class="object-cover h-15 w-20">
                         </div>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center max-w-sm">
                         <h2 class="font-semibold text-[1.2rem] text-primary">Experience Agent</h2>
                         <p class="text-[.8rem] text-[#8D8D8D]">Leverage agile frameworks to provide a robust synopsis for high level overviews. approaches lverall value proposition.</p>
                     </div>
@@ -266,7 +226,7 @@
                             <img src="{{ asset('storage/images/houseIcon.png') }}" alt="vector" class="object-cover h-15 w-20">
                         </div>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center max-w-sm">
                         <h2 class="font-semibold text-[1.2rem] text-primary">Buy a Home</h2>
                         <p class="text-[.8rem] text-[#8D8D8D]">Leverage agile frameworks to provide a robust synopsis for high level overviews. approaches lverall value proposition.</p>
                     </div>
@@ -274,47 +234,9 @@
             </div>
         </div>
      </section>
-     <section class="py-10 flex items-center justify-center">
-        <div class="container bg-[#F5F1EF] p-10 mx-auto">
-            <h1 class="font-semibold text-primary text-[1.1rem] text-center tracking-[0] leading-[29.6px]">More than 50+ Brands Trusted World Wide</h1>
-            
-            <div class="flex flex-wrap gap-4 justify-center mt-10">
-            <div class="flex items-center justify-center w-full sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/Proland.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-
-            <div class="flex items-center justify-center w-full  sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/city.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-
-            <div class="flex items-center justify-center w-full sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/archy.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-
-            <div class="flex items-center justify-center w-full sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/rand.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-
-            <div class="flex items-center justify-center w-full sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/techhouse.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-            <div class="flex items-center justify-center w-full sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/bitmax.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-            <div class="flex items-center justify-center w-full sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/target.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-            <div class="flex items-center justify-center w-full sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/classic.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-            <div class="flex items-center justify-center w-full sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img src="{{ asset('storage/images/brands/buildup.png') }}" alt="money-image" class="object-contain w-full h-10">
-            </div>
-        </div>
-        </div>
-     </section>
+     @include('shared.brand')
      <section class="cta py-10 flex flex-col items-center justify-center">
-        <div class="container">
+        <div class="container p-3">
             <div class="flex flex-col gap-5 md:flex-row items-center">
                 <div class="w-full md:w-2/5">
                     <div class="flex md:items-center gap-2 text-3xl font-bold">
@@ -332,7 +254,7 @@
                 </div>
                 <div class="w-full md:w-3/5 flex flex-col gap-3">
                     <h2 class="text-primary  font-bold text-[2rem] tracking-[0] leading-[33.3px] "> Get a free estimate</h2>
-                    <p class=" max-w-sm  text-link text-[.6rem] tracking-[0] leading-[15.7px]">Leverage agile frameworks to provide a robust synopsis for high level overviews. approaches lverall value proposition. Organically grow the holistic world view of disruptive.</p>
+                    <p class=" max-w-md  text-link text-[.9rem] tracking-[0] leading-[15.7px]">Leverage agile frameworks to provide a robust synopsis for high level overviews. approaches lverall value proposition. Organically grow the holistic world view of disruptive.</p>
                     <form action="">
                         <input type="text" name="email" placeholder="your email address here" class="border border-[#c0c0c0] py-2 px-4 rounded-sm placeholder:text-[.6rem]">
                         <button class="btn bg-primary text-white rounded-md p-2" >Subscribe Now</button>
@@ -340,106 +262,9 @@
                 </div>
             </div>
         </div>
-        <div class="container mt-10">
-            <div class="grid row-gap-10 mb-8 lg:grid-cols-6">
-                <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
-                    <div>
-                        <p class="font-medium tracking-wide text-primary">Company</p>
-                        <ul class="mt-2 space-y-1">
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">About</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Blog</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Properties</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Agents</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Services</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Contact us</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="font-medium tracking-wide text-primary">Services</p>
-                        <ul class="mt-2 space-y-1">
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Rent a Home</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Buy a Home</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Property Insurance</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Member Support</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Experience Agent</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Contact us</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="font-medium tracking-wide text-primary">Utility Pages</p>
-                        <ul class="mt-2 space-y-1">
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Rent a Home</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Buy a Home</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Property Insurance</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Member Support</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Experience Agent</a>
-                            </li>
-                            <li>
-                            <a href="/" class="text-link text-[.6rem] transition-colors duration-300 hover:text-deep-purple-accent-200">Contact us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="md:max-w-md lg:col-span-2 flex flex-col gap-4 bg-secondary rounded-sm text-primary p-5">
-                    <span class="text-base font-medium tracking-wide text-primary">Contact Us</span>
-                    <div class="flex items-center gap-1 text-[.6rem]">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
-                        <p>329 Queensberry Street, North <br />Melbourne VIC 3051, Australia.</p>
-                    </div>
-                    <div class="flex items-center gap-1 text-[.6rem]">
-                        <i class="fa fa-phone"></i>
-                        <p>123 456 7890</p>
-                    </div>
-                    <div class="flex items-center gap-1 text-[.6rem]">
-                        <i class="fa fa-envelope"></i>
-                        <p>support@example.com</p>
-                    </div>
-
-                </div>
-            </div>
-            
-            <div class="flex flex-col justify-between pt-5 pb-10 border-t border-blueGray-300">
-                <p class="text-sm text-gray-500 text-center">
-                    © Copyright 2023 Lorem Inc. All rights reserved.
-                </p>
-            </div>
-
-        </div>
      </section>
-      
+
+      @include('shared.footer')
         <nav class="flex justify-between bg-primary text-white w-screen">
             <div class="px-5 xl:px-12 py-6 flex w-full items-center">
                 <a class="text-3xl font-bold font-heading" href="#">

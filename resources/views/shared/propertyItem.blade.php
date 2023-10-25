@@ -5,7 +5,7 @@
     $class ??= null;
 @endphp
 
-<div class="bg-white p-4 rounded-md w-full">
+<div @class(["p-4 rounded-md w-full", $class])>
     <img src="{{ asset('storage/images/introImage.png') }}" alt="home-image" class="object-cover w-full h-52">
     <div class="flex justify-between items-center py-3">
         <span class="text-secondary font-bold text-[1.3rem]">$3500/Mo</span>
