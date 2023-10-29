@@ -26,7 +26,7 @@ class OptionController extends Controller
      */
     public function create()
     {
-        return view('admin.options.form',[$option=> new Option()]);
+        return view('admin.options.form',['option'=> new Option()]);
     }
 
     /**

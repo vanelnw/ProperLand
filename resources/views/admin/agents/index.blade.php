@@ -7,36 +7,38 @@
 @section('content')
 
 <div class="flex justify-between">
-    <h1>@yield('title')</h1>
-    <a href="{{ route('admin.agent.create')}}" class="bg-blue-300 text-white p-3 cursor-pointer">Ajouter un agent</a>
+    <h1 class="text-primary text-[2rem] font-bold">@yield('title')</h1>
+    <a href="{{ route('admin.agent.create')}}" class="bg-primary rounded-lg text-white p-2 cursor-pointer">Ajouter un agent</a>
 </div>
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>PhoneNumber</th>
-            <th>Image</th>
+<div class="align-middle inline-block min-w-full bg-white shadow-lg rounded-sm border border-gray-200 my-6">
+<table class="min-w-full table-auto">
+    <thead class="w-full">
+        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal w-full">
+            <th class="py-3 px-6 text-left">Name</th>
+            <th class="py-3 px-6 text-left">Email</th>
+            <th class="py-3 px-6 text-left">PhoneNumber</th>
+            <th class="py-3 px-6 text-left">Image</th>
+            <th class="py-3 px-6 text-left">Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach($agents as $agent)
             <tr>
-                <td>{{$agent->name}}</td>
-                <td>{{$agent->email}}</td>
-                <td>{{$agent->phone_number}}</td>
-                <td>
+                <td class="py-3 px-6 text-left">{{$agent->name}}</td>
+                <td class="py-3 px-6 text-left">{{$agent->email}}</td>
+                <td class="py-3 px-6 text-left">{{$agent->phone_number}}</td>
+                <td class="py-3 px-6 text-left">
                     @if($agent->image)
                         <img src="{{$agent->imageUrl()}}" alt="Agent Image" width=50 height=50>
                     @endif
                 </td>
-                <td>
+                <td class="py-3 px-6 text-left">
                     <div class="flex gap-3">
-                        <a href="{{route('admin.agent.edit', $agent)}}" class="rounded p-2 bg-blue-500"> Editer</a>
+                        <a href="{{route('admin.agent.edit', $agent)}}" class="rounded p-2 bg-yellow-200 text-yellow-600"> <x-icons.pencil-alt /></a>
                         <form action="{{ route('admin.agent.destroy', $agent)}}" method="post">
                             @csrf 
                             @method('delete')
-                            <button class="rounded p-2 bg-red-500 text-black" >Supprimer</button>
+                            <button class="rounded p-2 bg-red-300 text-red-500" ><x-icons.trash /></button>
                         </form>
                     </div>
                 </td>
@@ -44,6 +46,7 @@
         @endforeach
     </tbody>
 </table>
+</div>
 
 
 @endsection

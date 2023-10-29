@@ -1,4 +1,4 @@
-@php 
+@php
 $label ??= null;
 $type ??= 'text';
 $class ??= null;
@@ -7,15 +7,15 @@ $value ??= '';
 @endphp
 
 <div @class(["", $class])>
-    <label class="text-black" for={{$name}}>{{$label}}</label>
-    @if($type === 'textarea')
-       <textarea class="h-12 px-4 py-1 rounded-md border border-gray-100 shadow-md text-gray-800 focus:outline-none p-1 @error($name) border-red-700 @enderror" type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" >{{ old($name, $value) }}"</textarea>
+    <label class="text-black" for="{{ $name }}">{{ $label }}</label>
+    @if ($type === 'textarea')
+        <textarea class="h-12 px-4 py-1 rounded-md border border-gray-100 shadow-md text-gray-800 focus:outline-none p-1 @error($name) border-red-700 @enderror" type="{{ $type }}" id="{{ $name }}" name="{{ $name }}">{{ old($name, $value) }}</textarea>
     @else
         <input class="h-12 px-4 py-1 rounded-md border border-gray-100 shadow-md text-gray-800 focus:outline-none p-1 @error($name) border-red-700 @enderror" type="{{ $type }}" id="{{ $name }}" name="{{ $name }}" value="{{ old($name, $value) }}">
     @endif
     @error($name)
     <div class='text-red-400 text-sm'>
-        {{$message}}
+        {{ $message }}
     </div>
     @enderror
 </div>

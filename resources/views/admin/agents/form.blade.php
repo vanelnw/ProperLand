@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-
-    <h1>@yield('title')</h1>
-    <form action="{{ route($agent->exists ? 'admin.agent.update' : 'admin.agent.store', $agent) }}" method="post" enctype="multipart/form-data">
+   <div class="max-w-lg mx-auto">
+    <h1 class="text-primary text-[2rem] font-bold mb-3">@yield('title')</h1>
+    <form action="{{ route($agent->exists ? 'admin.agent.update' : 'admin.agent.store', $agent) }}" method="post" enctype="multipart/form-data" >
         @csrf
         @method($agent->exists ? 'put' : 'post')
 
-        <div class="grid grid-cols-3 gap-2">
+        <div class="">
             @include('shared.input', ['label'=>'Name','class'=>'flex flex-col', 'name'=> 'name', 'value'=>$agent->name])
             @include('shared.input', ['label'=>'Email','class'=>'flex flex-col', 'name'=> 'email', 'value'=>$agent->email])
             @include('shared.input', ['label'=>'Phone Number','class'=>'flex flex-col', 'name'=> 'phone_number', 'value'=>$agent->phone_number])
@@ -30,7 +30,7 @@
         
 
         <div>
-            <button class="bg-red-500">
+            <button class="bg-red-500 px-2 py-1 rounded-sm mt-2">
                 @if($agent->exists)
                     Modifier
                 @else
@@ -40,5 +40,5 @@
         </div>
 
     </form>
-
+</div>
 @endsection
