@@ -28,7 +28,8 @@ class Property extends Model
             "city",
             "address",
             "postal_code",
-            "sold_or_rent",
+            "status",
+            "thumbnail",
             "agent_id"
     ];
 

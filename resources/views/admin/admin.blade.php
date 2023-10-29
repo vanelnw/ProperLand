@@ -6,45 +6,25 @@
      @vite('resources/css/app.css')
      <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>@yield('title') | Administration</title>
 </head>
 <body>
-    <section class="relative mx-auto">
-        <nav class="flex justify-between bg-gray-900 text-white w-screen">
-            <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-                <a class="text-3xl font-bold font-heading" href="#">
-                <!-- <img class="h-9" src="logo.png" alt="logo"> -->
-                Logo Here.
-                </a>
-                <!-- Nav Links -->
+     <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
+        <!-- Sidebar -->
+        @include('admin._layouts.sidebar')
+            
+        <div class="flex-1 flex flex-col overflow-hidden">
+            @include('admin._layouts.header')
 
-                @php
-                    $route = request()->route()->getName();
-                @endphp
-                
-                <ul class="flex px-4 mx-auto font-semibold font-heading space-x-12 text-white">
-                    <li><a href="" class="hover:text-gray-200 " href="#">Home</a></li>
-                    <li><a href={{route('admin.property.index')}} @class(['hover:text-gray-200','text-red-500'=> str_contains($route, 'property.')]) href="#">properties</a></li>
-                    <li><a href={{route('admin.option.index')}} @class(['hover:text-gray-200','text-red-500'=> str_contains($route, 'option.')]) >Options</a></li>
-                    <li><a href={{route('admin.agent.index')}} @class(['hover:text-gray-200','text-red-500'=> str_contains($route, 'agent.')]) >Agents</a></li>
-                    <li><a class="hover:text-gray-200" href="#">Contact Us</a></li>
-                </ul>
-            </div>
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
+                <div class="container mx-auto px-6 py-8">
+                    @yield('content')
+                </div>
+            </main>
+        </div>
+     </div>
 
-            <div class="t">
-                @auth 
-                    <div>
-                        <form action="{{route('logout')}}" method="post">
-                            @csrf 
-                            @method('delete')
-                            <button class="p-2 bg-red-600 rounded">logout</button>
-                        </form>
-                    </div>
-                @endauth
-            </div>
-         </nav>
-    </section>      
-    
     <div class="container mt-5">
         
         @if(session('success'))
@@ -62,8 +42,6 @@
             </ul>
           </div>
         @endif
-
-        @yield('content')
     </div>
 
     <script>

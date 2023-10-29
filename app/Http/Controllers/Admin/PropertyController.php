@@ -53,8 +53,14 @@ class PropertyController extends Controller
      */
     public function store(PropertyFormRequest $request)
     { 
-        $property = Property::create($request->validated());
+        //$property = Property::create($request->validated());
+        $property = new Property();
+        $property = Property::create($this->extractImageData($property,$request));
         $property->options()->sync($request->validated('options'));
+
+       // $thumbnail = $request->validated('thumbnail');
+
+       // $property['thumbnail'] = $thumbnail->store('property_images', 'public');
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
@@ -116,5 +122,23 @@ class PropertyController extends Controller
         //$property = Property::find($id);
         $property->delete();
         return redirect()->route('admin.property.index')->with('success', 'Le bien a été supprimé');
+    }
+
+
+    private function extractImageData(Property $property, PropertyFormRequest $request ):array{
+        $data = $request->validated();
+
+           /** @var UploadedFile|null $image */
+            $image = $request->validated('thumbnail');
+            if($image === null && $image->getError()){
+                return $data;
+            } 
+            if($property->thumbnail){
+                Storage::disk('public')->delete($property->thumbnail);
+            }
+
+            $data['thumbnail'] = $image->store('property_images', 'public');
+
+            return $data;
     }
 }

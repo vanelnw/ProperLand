@@ -36,11 +36,11 @@ class PropertyFormRequest extends FormRequest
             "city" => ['required', 'min:5'],
             "address" => ['required', 'min:8'],
             "postal_code" => ['required', 'min:3'],
-            "for_sale" => ['required', 'boolean'],
-            "sold_or_rent" => ['required', 'boolean'],
             //"options" => ['array', 'exists:options.id', 'required']
             "options" => ['array', 'exists:options,id'],
             "agent_id" => ['integer', 'exists:agents,id'],
+            "status" => ['required','string','min:4'],
+            'thumbnail'=> ['required','image', 'max:2000'],
             'images.*' => 'image|mimes:jpeg,png,gif|max:2048',
         ];
     }
